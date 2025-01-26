@@ -1,23 +1,23 @@
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px; /* Відступи між елементами */
-    justify-content: center; /* Вирівнювання контенту */
+    gap: 24px; 
+    justify-content: center; 
     padding: 0;
-    list-style: none; /* Забрати стандартні стилі списку */
+    list-style: none; 
   }
   
   .gallery-item {
-    width: 360px; /* Фіксована ширина для кожного елемента */
-    height: 200px; /* Фіксована висота для кожного елемента */
+    width: 360px; 
+    height: 200px; 
     box-sizing: border-box;
-    overflow: hidden; /* Прибираємо можливі переповнення */
+    overflow: hidden; 
   }
   
   .gallery-image {
-    width: 100%; /* Розтягнути на всю ширину контейнера */
-    height: 100%; /* Розтягнути на всю висоту контейнера */
-    object-fit: cover; /* Зберегти пропорції зображення */
-    display: block; /* Впевнитися, що картинка веде себе як блок */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    display: block; 
   }
   
