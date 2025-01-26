@@ -1,3 +1,4 @@
+// Масив зображень
 const images = [
   {
     preview:
@@ -64,8 +65,10 @@ const images = [
   },
 ];
 
+// Посилання на контейнер галереї
 const galleryContainer = document.querySelector('.gallery');
 
+// Створення розмітки галереї
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
@@ -78,8 +81,43 @@ const galleryMarkup = images
         alt="${description}"
       />
     </a>
-  </li>`
+  </li>
+`
   )
   .join('');
 
+
 galleryContainer.innerHTML = galleryMarkup;
+
+
+galleryContainer.addEventListener('click', onGalleryClick);
+
+
+function onGalleryClick(event) {
+  event.preventDefault();
+
+  
+  const isImage = event.target.classList.contains('gallery-image');
+  if (!isImage) return;
+
+  const largeImageURL = event.target.dataset.source;
+
+  // Створення та відкриття модального вікна
+  const instance = basicLightbox.create(`
+    <img src="${largeImageURL}" width="800" height="600">
+  `);
+
+  instance.show();
+
+  
+  document.addEventListener('keydown', onEscPress);
+
+  function onEscPress(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+      document.removeEventListener('keydown', onEscPress);
+    }
+  }
+}
+
+
