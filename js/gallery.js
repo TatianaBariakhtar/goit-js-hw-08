@@ -63,4 +63,30 @@ const images = [
         description: 'Lighthouse Coast Sea',
       },
     ];
-    
+ 
+const galleryContainer = document.querySelector('.gallery');
+
+
+const fragment = document.createDocumentFragment();
+
+
+images.forEach(({ preview, original, description }) => {
+  const imgItem = document.createElement('div');
+  imgItem.classList.add('gallery-item');
+
+  imgItem.innerHTML = `
+    <a href="${original}" class="gallery-link">
+      <img
+        class="gallery-image"
+        src="${preview}"
+        alt="${description}"
+        loading="lazy"
+      />
+    </a>
+  `;
+
+  fragment.appendChild(imgItem);
+});
+
+
+galleryContainer.appendChild(fragment);  
